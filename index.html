@@ -1,0 +1,1102 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IncluiPG - Portal de Acessibilidade em Ponta Grossa</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#0056b3',
+                        secondary: '#ffc107',
+                        accent: '#17a2b8',
+                        dark: '#343a40',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .skip-link {
+            position: absolute;
+            top: -40px;
+            left: 0;
+            background: #000;
+            color: white;
+            padding: 8px;
+            z-index: 100;
+            transition: top 0.3s;
+        }
+        .skip-link:focus {
+            top: 0;
+        }
+        .high-contrast {
+            background-color: #000 !important;
+            color: #fff !important;
+        }
+        .high-contrast .bg-white {
+            background-color: #000 !important;
+            color: #fff !important;
+        }
+        .high-contrast .text-dark {
+            color: #fff !important;
+        }
+        .high-contrast .bg-primary {
+            background-color: #fff !important;
+            color: #000 !important;
+        }
+        .reading-mode {
+            font-family: Arial, sans-serif;
+            line-height: 1.8;
+        }
+        .reading-mode .text-xl {
+            font-size: 1.5rem;
+        }
+        .reading-mode p {
+            margin-bottom: 1.5rem;
+        }
+        .map-container {
+            height: 500px;
+            width: 100%;
+        }
+        .event-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .accessibility-icon {
+            width: 60px;
+            height: 60px;
+        }
+        @media (max-width: 768px) {
+            .accessibility-icon {
+                width: 40px;
+                height: 40px;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans bg-gray-50">
+    <!-- Skip to content link for screen readers -->
+    <a href="#main-content" class="skip-link">Pular para o conteúdo principal</a>
+
+    <!-- Accessibility Toolbar -->
+    <div class="bg-primary text-white py-2 px-4 flex flex-wrap justify-between items-center">
+        <div class="text-sm">IncluiPG - Portal de Acessibilidade</div>
+        <div class="flex space-x-2">
+            <button id="contrast-btn" class="bg-white text-primary px-3 py-1 rounded text-sm hover:bg-gray-100">
+                <i class="fas fa-adjust mr-1"></i> Alto Contraste
+            </button>
+            <button id="font-increase" class="bg-white text-primary px-3 py-1 rounded text-sm hover:bg-gray-100">
+                <i class="fas fa-text-height mr-1"></i> A+
+            </button>
+            <button id="font-decrease" class="bg-white text-primary px-3 py-1 rounded text-sm hover:bg-gray-100">
+                <i class="fas fa-text-width mr-1"></i> A-
+            </button>
+            <button id="reading-mode" class="bg-white text-primary px-3 py-1 rounded text-sm hover:bg-gray-100">
+                <i class="fas fa-book-reader mr-1"></i> Modo Leitura
+            </button>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-4 flex flex-col md:flex-row justify-between items-center">
+            <div class="flex items-center mb-4 md:mb-0">
+                <div class="bg-primary text-white rounded-full p-3 mr-3">
+                    <i class="fas fa-universal-access text-2xl"></i>
+                </div>
+                <div>
+                    <h1 class="text-2xl font-bold text-primary">IncluiPG</h1>
+                    <p class="text-sm text-gray-600">Acessibilidade em Ponta Grossa/PR</p>
+                </div>
+            </div>
+            
+            <nav aria-label="Navegação principal">
+                <ul class="flex flex-wrap justify-center space-x-1 md:space-x-4">
+                    <li><a href="#home" class="px-3 py-2 rounded hover:bg-gray-100 font-medium">Início</a></li>
+                    <li><a href="#mapa" class="px-3 py-2 rounded hover:bg-gray-100">Mapa</a></li>
+                    <li><a href="#direitos" class="px-3 py-2 rounded hover:bg-gray-100">Direitos</a></li>
+                    <li><a href="#eventos" class="px-3 py-2 rounded hover:bg-gray-100">Eventos</a></li>
+                    <li><a href="#denuncias" class="px-3 py-2 rounded hover:bg-gray-100">Denúncias</a></li>
+                    <li><a href="#blog" class="px-3 py-2 rounded hover:bg-gray-100">Blog</a></li>
+                    <li><a href="#contato" class="px-3 py-2 rounded hover:bg-gray-100">Contato</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="bg-primary text-white py-12">
+            <div class="container mx-auto px-4">
+                <div class="flex flex-col md:flex-row items-center">
+                    <div class="md:w-1/2 mb-8 md:mb-0">
+                        <h2 class="text-4xl font-bold mb-4">Ponta Grossa mais acessível para todos</h2>
+                        <p class="text-xl mb-6">Encontre locais acessíveis, conheça seus direitos e participe de eventos inclusivos na nossa cidade.</p>
+                        <div class="flex flex-wrap gap-4">
+                            <a href="#mapa" class="bg-secondary text-dark font-bold px-6 py-3 rounded-lg hover:bg-yellow-500 transition">
+                                <i class="fas fa-map-marker-alt mr-2"></i> Buscar locais
+                            </a>
+                            <a href="#direitos" class="bg-white text-primary font-bold px-6 py-3 rounded-lg hover:bg-gray-100 transition">
+                                <i class="fas fa-balance-scale mr-2"></i> Conheça seus direitos
+                            </a>
+                        </div>
+                    </div>
+                    <div class="md:w-1/2">
+                        <img src="Imagens/DSCN0362.jpg" 
+                             alt="Pessoas com diferentes tipos de deficiência interagindo" 
+                             class="rounded-lg shadow-xl w-full">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick Access Icons -->
+        <section class="bg-white py-12">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold text-center mb-12 text-dark">Como podemos te ajudar hoje?</h2>
+                <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-6">
+                    <a href="#mapa" class="flex flex-col items-center p-4 rounded-lg hover:bg-gray-50 transition group">
+                        <div class="bg-primary text-white rounded-full p-4 mb-3 group-hover:bg-primary-dark transition">
+                            <i class="fas fa-map-marked-alt accessibility-icon"></i>
+                        </div>
+                        <h3 class="font-bold text-center">Mapa de Acessibilidade</h3>
+                    </a>
+                    <a href="#direitos" class="flex flex-col items-center p-4 rounded-lg hover:bg-gray-50 transition group">
+                        <div class="bg-primary text-white rounded-full p-4 mb-3 group-hover:bg-primary-dark transition">
+                            <i class="fas fa-gavel accessibility-icon"></i>
+                        </div>
+                        <h3 class="font-bold text-center">Guia de Direitos</h3>
+                    </a>
+                    <a href="#eventos" class="flex flex-col items-center p-4 rounded-lg hover:bg-gray-50 transition group">
+                        <div class="bg-primary text-white rounded-full p-4 mb-3 group-hover:bg-primary-dark transition">
+                            <i class="fas fa-calendar-alt accessibility-icon"></i>
+                        </div>
+                        <h3 class="font-bold text-center">Eventos Inclusivos</h3>
+                    </a>
+                    <a href="#denuncias" class="flex flex-col items-center p-4 rounded-lg hover:bg-gray-50 transition group">
+                        <div class="bg-primary text-white rounded-full p-4 mb-3 group-hover:bg-primary-dark transition">
+                            <i class="fas fa-bullhorn accessibility-icon"></i>
+                        </div>
+                        <h3 class="font-bold text-center">Denúncias</h3>
+                    </a>
+                    <a href="#blog" class="flex flex-col items-center p-4 rounded-lg hover:bg-gray-50 transition group">
+                        <div class="bg-primary text-white rounded-full p-4 mb-3 group-hover:bg-primary-dark transition">
+                            <i class="fas fa-newspaper accessibility-icon"></i>
+                        </div>
+                        <h3 class="font-bold text-center">Histórias</h3>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Map Section -->
+        <section id="mapa" class="bg-gray-100 py-12">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-6 text-dark">Mapa de Acessibilidade</h2>
+                <p class="mb-8 text-lg">Encontre locais acessíveis em Ponta Grossa. Filtre por tipo de acessibilidade que você precisa.</p>
+                
+                <div class="bg-white rounded-lg shadow-md p-4 mb-8">
+                    <div class="flex flex-wrap gap-4 mb-4">
+                        <button class="bg-primary text-white px-4 py-2 rounded-full flex items-center">
+                            <i class="fas fa-wheelchair mr-2"></i> Cadeirante
+                        </button>
+                        <button class="bg-accent text-white px-4 py-2 rounded-full flex items-center">
+                            <i class="fas fa-eye mr-2"></i> Visual
+                        </button>
+                        <button class="bg-secondary text-dark px-4 py-2 rounded-full flex items-center">
+                            <i class="fas fa-deaf mr-2"></i> Auditiva
+                        </button>
+                        <button class="bg-purple-500 text-white px-4 py-2 rounded-full flex items-center">
+                            <i class="fas fa-brain mr-2"></i> Intelectual
+                        </button>
+                        <button class="bg-green-500 text-white px-4 py-2 rounded-full flex items-center">
+                            <i class="fas fa-bus mr-2"></i> Transporte
+                        </button>
+                    </div>
+                    
+                    <div class="map-container rounded-lg overflow-hidden">
+    <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3657.6798706283294!2d-50.161707585022204!3d-25.092716783949206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x94e81b50581ecf69%3A0x3d3c63f9480c3fa5!2sPonta%20Grossa%2C%20PR!5e0!3m2!1spt-BR!2sbr!4v1622111111111!5m2!1spt-BR!2sbr" 
+        width="100%" 
+        height="400" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Sample location cards -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="h-40 bg-gray-300 relative">
+                             <img src="Imagens/FACHADA_PALLADIUM_PG.webp" 
+             alt="Shopping Palladium Ponta Grossa"
+             class="w-full h-full object-cover">
+                            <div class="absolute top-2 left-2 bg-primary text-white px-2 py-1 rounded text-xs">
+                                <i class="fas fa-wheelchair mr-1"></i> Acessível
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">Shopping Palladium</h3>
+                            <p class="text-gray-600 mb-3">Av. Visconde de Mauá, 1800 - Centro</p>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Rampas</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">Banheiro adaptado</span>
+                                <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">Elevadores</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star-half-alt"></i>
+                                </div>
+                                <a href="#" class="text-primary font-medium">Ver detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="h-40 bg-gray-300 relative">
+                            <img src="Imagens/abeb27ce397d0edf12067f1fbefac714.jpg" 
+             alt="Shopping Palladium Ponta Grossa"
+             class="w-full h-full object-cover">
+             
+                            <div class="absolute top-2 left-2 bg-accent text-white px-2 py-1 rounded text-xs">
+                                <i class="fas fa-eye mr-1"></i> Visual
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">Prefeitura Municipal</h3>
+                            <p class="text-gray-600 mb-3">Praça Marechal Floriano Peixoto, s/n - Centro</p>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Piso tátil</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">Braille</span>
+                                <span class="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">Atendimento prioritário</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="far fa-star"></i>
+                                </div>
+                                <a href="#" class="text-primary font-medium">Ver detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="h-40 bg-gray-300 relative">
+                            <img src="Imagens/YkVLmQuTCO7AuomqSdzLFYtLae1I8UpFb4GRpkZX.jpg" 
+             alt="Shopping Palladium Ponta Grossa"
+             class="w-full h-full object-cover">
+                            <div class="absolute top-2 left-2 bg-secondary text-dark px-2 py-1 rounded text-xs">
+                                <i class="fas fa-deaf mr-1"></i> Libras
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <h3 class="font-bold text-lg mb-2">Teatro Municipal</h3>
+                            <p class="text-gray-600 mb-3">Rua Eng. Schamber, 655 - Centro</p>
+                            <div class="flex flex-wrap gap-2 mb-3">
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Intérprete de Libras</span>
+                                <span class="bg-blue-100 text-blue-800 px-2 py-1 rounded text-xs">Rampas</span>
+                                <span class="bg-purple-100 text-purple-800 px-2 py-1 rounded text-xs">Assentos reservados</span>
+                            </div>
+                            <div class="flex justify-between items-center">
+                                <div class="flex text-yellow-400">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <a href="#" class="text-primary font-medium">Ver detalhes</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center mt-8">
+                    <a href="#" class="inline-block bg-primary text-white font-bold px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+                        <i class="fas fa-plus-circle mr-2"></i> Carregar mais locais
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Rights Guide Section -->
+        <section id="direitos" class="bg-white py-12">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-6 text-dark">Guia de Direitos das Pessoas com Deficiência</h2>
+                <p class="mb-8 text-lg">Conheça os direitos garantidos por lei e os serviços disponíveis em Ponta Grossa.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                    <div class="bg-gray-100 rounded-lg p-6 border-l-4 border-primary">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-primary text-white rounded-full p-3 mr-4">
+                                <i class="fas fa-hand-holding-usd text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-xl">Benefícios</h3>
+                        </div>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>BPC - Benefício de Prestação Continuada</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Passe Livre no transporte interestadual</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Isenção de tarifas em transporte público municipal</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gray-100 rounded-lg p-6 border-l-4 border-accent">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-accent text-white rounded-full p-3 mr-4">
+                                <i class="fas fa-car text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-xl">Isenções</h3>
+                        </div>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Isenção de IPI na compra de veículos</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Isenção de ICMS</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Isenção de IPVA</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gray-100 rounded-lg p-6 border-l-4 border-secondary">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-secondary text-white rounded-full p-3 mr-4">
+                                <i class="fas fa-graduation-cap text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-xl">Educação</h3>
+                        </div>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Atendimento Educacional Especializado</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Inclusão em escolas regulares</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Profissionais de apoio</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gray-100 rounded-lg p-6 border-l-4 border-purple-500">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-purple-500 text-white rounded-full p-3 mr-4">
+                                <i class="fas fa-briefcase-medical text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-xl">Saúde</h3>
+                        </div>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Atendimento prioritário</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Fornecimento de órteses e próteses</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Tratamento fora de domicílio</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gray-100 rounded-lg p-6 border-l-4 border-green-500">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-green-500 text-white rounded-full p-3 mr-4">
+                                <i class="fas fa-building text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-xl">Trabalho</h3>
+                        </div>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Cota em empregos públicos e privados</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Adaptações no ambiente de trabalho</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Programas de capacitação profissional</span>
+                            </li>
+                        </ul>
+                    </div>
+                    
+                    <div class="bg-gray-100 rounded-lg p-6 border-l-4 border-red-500">
+                        <div class="flex items-center mb-4">
+                            <div class="bg-red-500 text-white rounded-full p-3 mr-4">
+                                <i class="fas fa-hands-helping text-xl"></i>
+                            </div>
+                            <h3 class="font-bold text-xl">Apoio em Ponta Grossa</h3>
+                        </div>
+                        <ul class="space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>APAE - Associação de Pais e Amigos dos Excepcionais</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>CRAS - Centro de Referência de Assistência Social</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                                <span>Secretaria Municipal da Pessoa com Deficiência</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="bg-primary text-white rounded-lg p-6">
+                    <h3 class="font-bold text-xl mb-4">Precisa de ajuda para acessar seus direitos?</h3>
+                    <p class="mb-4">Entre em contato com os órgãos de apoio em Ponta Grossa:</p>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                        <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                            <h4 class="font-bold mb-2">APAE Ponta Grossa</h4>
+                            <p><i class="fas fa-phone mr-2"></i> (42) 3222-1234</p>
+                            <p><i class="fas fa-map-marker-alt mr-2"></i> Rua João XXIII, 100</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                            <h4 class="font-bold mb-2">CRAS Centro</h4>
+                            <p><i class="fas fa-phone mr-2"></i> (42) 3220-1000</p>
+                            <p><i class="fas fa-map-marker-alt mr-2"></i> Av. Visconde de Mauá, 500</p>
+                        </div>
+                        <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                            <h4 class="font-bold mb-2">Secretaria da Pessoa com Deficiência</h4>
+                            <p><i class="fas fa-phone mr-2"></i> (42) 3220-2000</p>
+                            <p><i class="fas fa-map-marker-alt mr-2"></i> Praça Marechal Floriano Peixoto, s/n</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section id="eventos" class="bg-gray-100 py-12">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-6 text-dark">Eventos Inclusivos em Ponta Grossa</h2>
+                <p class="mb-8 text-lg">Confira os próximos eventos culturais, esportivos e sociais adaptados para pessoas com deficiência.</p>
+                
+                <div class="flex flex-wrap gap-4 mb-8">
+                    <button class="bg-primary text-white px-4 py-2 rounded-full flex items-center">
+                        <i class="fas fa-calendar-day mr-2"></i> Hoje
+                    </button>
+                    <button class="bg-white border border-gray-300 px-4 py-2 rounded-full flex items-center">
+                        <i class="fas fa-calendar-week mr-2"></i> Esta semana
+                    </button>
+                    <button class="bg-white border border-gray-300 px-4 py-2 rounded-full flex items-center">
+                        <i class="fas fa-calendar-alt mr-2"></i> Este mês
+                    </button>
+                    <div class="relative">
+                        <select class="appearance-none bg-white border border-gray-300 px-4 py-2 pr-8 rounded-full">
+                            <option>Todos os tipos</option>
+                            <option>Cultural</option>
+                            <option>Esportivo</option>
+                            <option>Educacional</option>
+                            <option>Social</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                    <div class="relative">
+                        <select class="appearance-none bg-white border border-gray-300 px-4 py-2 pr-8 rounded-full">
+                            <option>Todas as deficiências</option>
+                            <option>Visual</option>
+                            <option>Auditiva</option>
+                            <option>Motora</option>
+                            <option>Intelectual</option>
+                        </select>
+                        <div class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-2 text-gray-700">
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                    <!-- Event cards -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden event-card transition duration-300">
+                        <div class="h-48 bg-gray-300 relative">
+                            <div class="absolute top-2 right-2 bg-primary text-white px-2 py-1 rounded text-xs">
+                                <i class="fas fa-eye mr-1"></i> Visual
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                                <div class="text-white font-bold">15 OUT</div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-lg">Cinema Acessível</h3>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Gratuito</span>
+                            </div>
+                            <p class="text-gray-600 mb-3">Sessão de cinema com audiodescrição para pessoas com deficiência visual.</p>
+                            <div class="flex items-center text-gray-500 mb-3">
+                                <i class="fas fa-clock mr-2"></i>
+                                <span>15h às 17h</span>
+                            </div>
+                            <div class="flex items-center text-gray-500 mb-4">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                <span>Cine-Teatro Ópera</span>
+                            </div>
+                            <a href="#" class="block text-center bg-primary text-white font-medium py-2 rounded-lg hover:bg-blue-700 transition">
+                                Mais informações
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden event-card transition duration-300">
+                        <div class="h-48 bg-gray-300 relative">
+                            <div class="absolute top-2 right-2 bg-secondary text-dark px-2 py-1 rounded text-xs">
+                                <i class="fas fa-deaf mr-1"></i> Libras
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                                <div class="text-white font-bold">20 OUT</div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-lg">Palestra sobre Inclusão</h3>
+                                <span class="bg-yellow-100 text-yellow-800 px-2 py-1 rounded text-xs">R$ 20,00</span>
+                            </div>
+                            <p class="text-gray-600 mb-3">Palestra com intérprete de Libras sobre direitos das pessoas com deficiência.</p>
+                            <div class="flex items-center text-gray-500 mb-3">
+                                <i class="fas fa-clock mr-2"></i>
+                                <span>19h às 21h</span>
+                            </div>
+                            <div class="flex items-center text-gray-500 mb-4">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                <span>Auditório da UTFPR</span>
+                            </div>
+                            <a href="#" class="block text-center bg-primary text-white font-medium py-2 rounded-lg hover:bg-blue-700 transition">
+                                Mais informações
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden event-card transition duration-300">
+                        <div class="h-48 bg-gray-300 relative">
+                            <div class="absolute top-2 right-2 bg-purple-500 text-white px-2 py-1 rounded text-xs">
+                                <i class="fas fa-brain mr-1"></i> Intelectual
+                            </div>
+                            <div class="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black to-transparent p-4">
+                                <div class="text-white font-bold">25 OUT</div>
+                            </div>
+                        </div>
+                        <div class="p-4">
+                            <div class="flex justify-between items-start mb-2">
+                                <h3 class="font-bold text-lg">Oficina de Artes</h3>
+                                <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Gratuito</span>
+                            </div>
+                            <p class="text-gray-600 mb-3">Oficina de pintura adaptada para pessoas com deficiência intelectual.</p>
+                            <div class="flex items-center text-gray-500 mb-3">
+                                <i class="fas fa-clock mr-2"></i>
+                                <span>14h às 16h</span>
+                            </div>
+                            <div class="flex items-center text-gray-500 mb-4">
+                                <i class="fas fa-map-marker-alt mr-2"></i>
+                                <span>Centro Cultural</span>
+                            </div>
+                            <a href="#" class="block text-center bg-primary text-white font-medium py-2 rounded-lg hover:bg-blue-700 transition">
+                                Mais informações
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <a href="#" class="inline-block bg-primary text-white font-bold px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+                        <i class="fas fa-calendar-plus mr-2"></i> Ver todos os eventos
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Reports Section -->
+        <section id="denuncias" class="bg-white py-12">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-6 text-dark">Denúncias e Sinalizações</h2>
+                <p class="mb-8 text-lg">Ajude a melhorar a acessibilidade em Ponta Grossa. Reporte locais inacessíveis ou sugira melhorias.</p>
+                
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/2">
+                        <div class="bg-gray-100 rounded-lg p-6 mb-6">
+                            <h3 class="font-bold text-xl mb-4">Como funciona?</h3>
+                            <ul class="space-y-3">
+                                <li class="flex items-start">
+                                    <div class="bg-primary text-white rounded-full p-2 mr-3 flex-shrink-0">
+                                        <i class="fas fa-1"></i>
+                                    </div>
+                                    <span>Preencha o formulário com detalhes sobre o local</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="bg-primary text-white rounded-full p-2 mr-3 flex-shrink-0">
+                                        <i class="fas fa-2"></i>
+                                    </div>
+                                    <span>Se possível, anexe fotos que comprovem o problema</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="bg-primary text-white rounded-full p-2 mr-3 flex-shrink-0">
+                                        <i class="fas fa-3"></i>
+                                    </div>
+                                    <span>Nossa equipe verificará e encaminhará aos órgãos responsáveis</span>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="bg-primary text-white rounded-full p-2 mr-3 flex-shrink-0">
+                                        <i class="fas fa-4"></i>
+                                    </div>
+                                    <span>Você receberá atualizações sobre o andamento</span>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-primary text-white rounded-lg p-6">
+                            <h3 class="font-bold text-xl mb-4">Denúncias recentes resolvidas</h3>
+                            <div class="space-y-4">
+                                <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h4 class="font-bold">Calçada irregular na Rua XV de Novembro</h4>
+                                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Resolvido</span>
+                                    </div>
+                                    <p class="mb-2">Calçada foi reformada com piso tátil e rebaixamento para cadeirantes.</p>
+                                    <p class="text-sm opacity-80">Atualizado em 10/10/2023</p>
+                                </div>
+                                <div class="bg-white bg-opacity-20 p-4 rounded-lg">
+                                    <div class="flex justify-between items-start mb-2">
+                                        <h4 class="font-bold">Falta de intérprete de Libras no Hospital Municipal</h4>
+                                        <span class="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Resolvido</span>
+                                    </div>
+                                    <p class="mb-2">Hospital contratou intérprete em tempo integral para atendimento.</p>
+                                    <p class="text-sm opacity-80">Atualizado em 05/10/2023</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2">
+                        <div class="bg-white border border-gray-200 rounded-lg shadow-md p-6">
+                            <h3 class="font-bold text-xl mb-6 text-center">Formulário de Denúncia/Sugestão</h3>
+                            <form>
+                                <div class="mb-4">
+                                    <label for="report-type" class="block text-gray-700 font-medium mb-2">Tipo de relato</label>
+                                    <select id="report-type" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                                        <option value="">Selecione...</option>
+                                        <option value="denuncia">Denúncia de local inacessível</option>
+                                        <option value="sugestao">Sugestão de melhoria</option>
+                                        <option value="elogio">Elogio a local acessível</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label for="location" class="block text-gray-700 font-medium mb-2">Local</label>
+                                    <input type="text" id="location" placeholder="Nome do estabelecimento ou endereço" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label for="accessibility-type" class="block text-gray-700 font-medium mb-2">Tipo de acessibilidade afetada</label>
+                                    <div class="flex flex-wrap gap-2">
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" class="rounded text-primary">
+                                            <span class="ml-2">Cadeirante</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" class="rounded text-primary">
+                                            <span class="ml-2">Visual</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" class="rounded text-primary">
+                                            <span class="ml-2">Auditiva</span>
+                                        </label>
+                                        <label class="inline-flex items-center">
+                                            <input type="checkbox" class="rounded text-primary">
+                                            <span class="ml-2">Intelectual</span>
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label for="description" class="block text-gray-700 font-medium mb-2">Descrição detalhada</label>
+                                    <textarea id="description" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary" placeholder="Descreva o problema ou sugestão com detalhes..."></textarea>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label class="block text-gray-700 font-medium mb-2">Anexar fotos (opcional)</label>
+                                    <div class="border-2 border-dashed border-gray-300 rounded-lg p-4 text-center">
+                                        <i class="fas fa-camera text-3xl text-gray-400 mb-2"></i>
+                                        <p class="text-gray-500">Arraste e solte fotos aqui ou clique para selecionar</p>
+                                        <input type="file" class="hidden">
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label for="contact" class="block text-gray-700 font-medium mb-2">Seu contato (opcional)</label>
+                                    <input type="text" id="contact" placeholder="E-mail ou telefone para retorno" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                                </div>
+                                
+                                <button type="submit" class="w-full bg-primary text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700 transition">
+                                    <i class="fas fa-paper-plane mr-2"></i> Enviar relato
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Blog Section -->
+        <section id="blog" class="bg-gray-100 py-12">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-6 text-dark">Histórias e Artigos</h2>
+                <p class="mb-8 text-lg">Conheça histórias inspiradoras e informações úteis sobre inclusão em Ponta Grossa.</p>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+                    <!-- Featured story -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden md:col-span-2 lg:col-span-2">
+                        <div class="md:flex">
+                            <div class="md:w-1/2 h-64 bg-gray-300 relative">
+                                <div class="absolute inset-0 bg-gradient-to-t from-black to-transparent opacity-50"></div>
+                                <div class="absolute bottom-0 left-0 p-6">
+                                    <span class="bg-primary text-white px-3 py-1 rounded-full text-sm">Destaque</span>
+                                </div>
+                            </div>
+                            <div class="md:w-1/2 p-6">
+                                <h3 class="font-bold text-xl mb-3">Superando limites: a história de João</h3>
+                                <p class="text-gray-600 mb-4">João, cadeirante de Ponta Grossa, conta como conquistou sua independência e hoje trabalha como desenvolvedor de software.</p>
+                                <div class="flex items-center text-gray-500 mb-4">
+                                    <i class="fas fa-user mr-2"></i>
+                                    <span>Por Equipe IncluiPG</span>
+                                </div>
+                                <div class="flex items-center text-gray-500">
+                                    <i class="fas fa-calendar-alt mr-2"></i>
+                                    <span>05 de Outubro de 2023</span>
+                                </div>
+                                <a href="#" class="inline-block mt-4 text-primary font-medium hover:underline">
+                                    Ler história completa <i class="fas fa-arrow-right ml-1"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Regular stories -->
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="h-48 bg-gray-300"></div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg mb-3">Guia de aplicativos úteis para PcDs</h3>
+                            <p class="text-gray-600 mb-4">Conheça os melhores apps para facilitar o dia a dia das pessoas com diferentes tipos de deficiência.</p>
+                            <a href="#" class="inline-block text-primary font-medium hover:underline">
+                                Ler artigo <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="h-48 bg-gray-300"></div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg mb-3">Oficina de inclusão nas escolas municipais</h3>
+                            <p class="text-gray-600 mb-4">Como as escolas de Ponta Grossa estão se preparando para receber alunos com deficiência.</p>
+                            <a href="#" class="inline-block text-primary font-medium hover:underline">
+                                Ler artigo <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                    
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <div class="h-48 bg-gray-300"></div>
+                        <div class="p-6">
+                            <h3 class="font-bold text-lg mb-3">Depoimento: minha vida após perder a visão</h3>
+                            <p class="text-gray-600 mb-4">Maria compartilha sua jornada de adaptação e as conquistas após ficar cega aos 35 anos.</p>
+                            <a href="#" class="inline-block text-primary font-medium hover:underline">
+                                Ler história <i class="fas fa-arrow-right ml-1"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="text-center">
+                    <a href="#" class="inline-block bg-primary text-white font-bold px-6 py-3 rounded-lg hover:bg-blue-700 transition">
+                        <i class="fas fa-book-open mr-2"></i> Ver todos os artigos
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contato" class="bg-white py-12">
+            <div class="container mx-auto px-4">
+                <h2 class="text-3xl font-bold mb-6 text-dark">Fale Conosco</h2>
+                <p class="mb-8 text-lg">Tem dúvidas, sugestões ou precisa de ajuda? Entre em contato com nossa equipe.</p>
+                
+                <div class="flex flex-col md:flex-row gap-8">
+                    <div class="md:w-1/2">
+                        <div class="bg-gray-100 rounded-lg p-6 mb-6">
+                            <h3 class="font-bold text-xl mb-4">Contatos úteis</h3>
+                            <ul class="space-y-4">
+                                <li class="flex items-start">
+                                    <div class="bg-primary text-white rounded-full p-3 mr-4 flex-shrink-0">
+                                        <i class="fas fa-phone-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">Telefone</h4>
+                                        <p>(42) 3220-1234</p>
+                                        <p class="text-sm text-gray-600">Segunda a sexta, das 8h às 18h</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="bg-primary text-white rounded-full p-3 mr-4 flex-shrink-0">
+                                        <i class="fas fa-envelope"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">E-mail</h4>
+                                        <p>contato@incluipg.org.br</p>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="bg-primary text-white rounded-full p-3 mr-4 flex-shrink-0">
+                                        <i class="fab fa-whatsapp"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">WhatsApp</h4>
+                                        <p>(42) 99999-1234</p>
+                                        <a href="#" class="inline-block mt-1 bg-green-500 text-white px-3 py-1 rounded text-sm hover:bg-green-600">
+                                            <i class="fab fa-whatsapp mr-1"></i> Enviar mensagem
+                                        </a>
+                                    </div>
+                                </li>
+                                <li class="flex items-start">
+                                    <div class="bg-primary text-white rounded-full p-3 mr-4 flex-shrink-0">
+                                        <i class="fas fa-map-marker-alt"></i>
+                                    </div>
+                                    <div>
+                                        <h4 class="font-bold">Endereço</h4>
+                                        <p>Rua XV de Novembro, 123 - Centro</p>
+                                        <p>Ponta Grossa - PR</p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        
+                        <div class="bg-primary text-white rounded-lg p-6">
+                            <h3 class="font-bold text-xl mb-4">Redes Sociais</h3>
+                            <p class="mb-4">Acompanhe nossas atividades e fique por dentro das novidades:</p>
+                            <div class="flex space-x-4">
+                                <a href="#" class="bg-white text-primary rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-100">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="bg-white text-primary rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-100">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="bg-white text-primary rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-100">
+                                    <i class="fab fa-youtube"></i>
+                                </a>
+                                <a href="#" class="bg-white text-primary rounded-full w-10 h-10 flex items-center justify-center hover:bg-gray-100">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="md:w-1/2">
+                        <div class="bg-white border border-gray-200 rounded-lg shadow-md p-6">
+                            <h3 class="font-bold text-xl mb-6 text-center">Formulário de Contato</h3>
+                            <form>
+                                <div class="mb-4">
+                                    <label for="name" class="block text-gray-700 font-medium mb-2">Seu nome</label>
+                                    <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label for="email" class="block text-gray-700 font-medium mb-2">Seu e-mail</label>
+                                    <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label for="subject" class="block text-gray-700 font-medium mb-2">Assunto</label>
+                                    <select id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary">
+                                        <option value="">Selecione...</option>
+                                        <option value="duvida">Dúvida</option>
+                                        <option value="sugestao">Sugestão</option>
+                                        <option value="parceria">Parceria</option>
+                                        <option value="outro">Outro</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="mb-4">
+                                    <label for="message" class="block text-gray-700 font-medium mb-2">Mensagem</label>
+                                    <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary"></textarea>
+                                </div>
+                                
+                                <button type="submit" class="w-full bg-primary text-white font-bold py-3 px-4 rounded-lg hover:bg-blue-700 transition">
+                                    <i class="fas fa-paper-plane mr-2"></i> Enviar mensagem
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-dark text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between mb-8">
+                <div class="mb-6 md:mb-0">
+                    <div class="flex items-center mb-4">
+                        <div class="bg-primary text-white rounded-full p-2 mr-3">
+                            <i class="fas fa-universal-access"></i>
+                        </div>
+                        <h3 class="text-xl font-bold">IncluiPG</h3>
+                    </div>
+                    <p class="mb-4">Portal de acessibilidade e inclusão de Ponta Grossa/PR.</p>
+                    <p>Juntos por uma cidade mais acessível para todos.</p>
+                </div>
+                
+                <div class="grid grid-cols-2 md:grid-cols-3 gap-8">
+                    <div>
+                        <h4 class="font-bold text-lg mb-4">Links Rápidos</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#home" class="hover:text-primary transition">Início</a></li>
+                            <li><a href="#mapa" class="hover:text-primary transition">Mapa</a></li>
+                            <li><a href="#direitos" class="hover:text-primary transition">Direitos</a></li>
+                            <li><a href="#eventos" class="hover:text-primary transition">Eventos</a></li>
+                            <li><a href="#blog" class="hover:text-primary transition">Blog</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold text-lg mb-4">Institucional</h4>
+                        <ul class="space-y-2">
+                            <li><a href="#" class="hover:text-primary transition">Sobre o projeto</a></li>
+                            <li><a href="#" class="hover:text-primary transition">Parceiros</a></li>
+                            <li><a href="#" class="hover:text-primary transition">Transparência</a></li>
+                            <li><a href="#" class="hover:text-primary transition">Termos de uso</a></li>
+                            <li><a href="#" class="hover:text-primary transition">Política de privacidade</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 class="font-bold text-lg mb-4">Apoio</h4>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div class="bg-white bg-opacity-10 p-2 rounded flex items-center justify-center h-16">
+                                <span class="text-xs">Prefeitura Municipal</span>
+                            </div>
+                            <div class="bg-white bg-opacity-10 p-2 rounded flex items-center justify-center h-16">
+                                <span class="text-xs">APAE</span>
+                            </div>
+                            <div class="bg-white bg-opacity-10 p-2 rounded flex items-center justify-center h-16">
+                                <span class="text-xs">UTFPR</span>
+                            </div>
+                            <div class="bg-white bg-opacity-10 p-2 rounded flex items-center justify-center h-16">
+                                <span class="text-xs">UEPG</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="pt-6 border-t border-gray-700 flex flex-col md:flex-row justify-between items-center">
+                <p class="mb-4 md:mb-0">© 2023 IncluiPG. Todos os direitos reservados.</p>
+                <div class="flex space-x-4">
+                    <a href="#" class="hover:text-primary transition">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="hover:text-primary transition">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="hover:text-primary transition">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="hover:text-primary transition">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- VLibras Integration (would be replaced with actual integration) -->
+    <div class="fixed bottom-4 right-4 z-50">
+        <button id="vlibras-btn" class="bg-primary text-white rounded-full w-14 h-14 flex items-center justify-center shadow-lg hover:bg-blue-700 transition">
+            <i class="fas fa-sign-language text-2xl"></i>
+        </button>
+    </div>
+
+    <script>
+        // Accessibility features
+        document.getElementById('contrast-btn').addEventListener('click', function() {
+            document.body.classList.toggle('high-contrast');
+        });
+        
+        document.getElementById('font-increase').addEventListener('click', function() {
+            const currentSize = parseFloat(getComputedStyle(document.body).fontSize);
+            document.body.style.fontSize = (currentSize + 1) + 'px';
+        });
+        
+        document.getElementById('font-decrease').addEventListener('click', function() {
+            const currentSize = parseFloat(getComputedStyle(document.body).fontSize);
+            if (currentSize > 12) {
+                document.body.style.fontSize = (currentSize - 1) + 'px';
+            }
+        });
+        
+        document.getElementById('reading-mode').addEventListener('click', function() {
+            document.body.classList.toggle('reading-mode');
+        });
+        
+        // VLibras button simulation
+        document.getElementById('vlibras-btn').addEventListener('click', function() {
+            alert('Aqui seria ativado o VLibras para tradução em Libras');
+        });
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
